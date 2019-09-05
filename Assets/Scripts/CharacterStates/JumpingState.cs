@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldingState : CharacterState
+public class JumpingState : CharacterState
 {
-    public ShieldingState(InputControl inputControl) : base(inputControl)
+    public JumpingState(InputControl inputControl) : base(inputControl)
     {
-        stateID = StateID.Shielding;
+        stateID = StateID.Jumping;
     }
 
     public override int handleInput()

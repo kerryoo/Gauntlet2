@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class WalkingState : CharacterState
 {
-
-    public CharacterState handleInput(InputControl inputControl)
+    public WalkingState(InputControl inputControl) : base(inputControl)
     {
-        WalkingState walkingState = new WalkingState();
-        return walkingState;
+        stateID = StateID.Walking;
+    }
+
+
+    public override int handleInput()
+    {
+        throw new System.NotImplementedException() ;
     }
 }

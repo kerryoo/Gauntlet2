@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialMovementState : MonoBehaviour
+public class SpecialMovementState : CharacterState
 {
-    // Start is called before the first frame update
-    void Start()
+    public SpecialMovementState(InputControl inputControl) : base(inputControl)
     {
-        
+        stateID = StateID.SpecialMovement;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override int handleInput()
     {
-        
+        throw new System.NotImplementedException();
     }
 }

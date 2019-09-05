@@ -5,6 +5,8 @@ using UnityEngine;
 public class CharacterStateLibrary : MonoBehaviour
 {
     public CharacterState currCharacterState;
+    public int currStateID;
+    public InputControl inputControl;
     
     private IdleState m_IdleState;
     public IdleState IdleState
@@ -13,7 +15,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_IdleState == null)
             {
-                m_IdleState = new IdleState();
+                m_IdleState = new IdleState(inputControl);
             }
             return m_IdleState;
         }
@@ -26,9 +28,22 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_WalkingState == null)
             {
-                m_WalkingState = new WalkingState();
+                m_WalkingState = new WalkingState(inputControl);
             }
             return m_WalkingState;
+        }
+    }
+
+    private WalkingBackState m_WalkingBackState;
+    public WalkingBackState WalkingBackState
+    {
+        get
+        {
+            if (m_WalkingBackState == null)
+            {
+                m_WalkingBackState = new WalkingBackState(inputControl);
+            }
+            return m_WalkingBackState;
         }
     }
 
@@ -37,22 +52,77 @@ public class CharacterStateLibrary : MonoBehaviour
     {
         get
         {
-            if (m_SpecialMovementState = null)
+            if (m_SpecialMovementState == null)
             {
-                m_SpecialMovementState = new SpecialMovementState();
+                m_SpecialMovementState = new SpecialMovementState(inputControl);
             }
             return m_SpecialMovementState;
         }
     }
 
+    private ShieldingState m_ShieldingState;
+    public ShieldingState ShieldingState
+    {
+        get
+        {
+            if (m_ShieldingState == null)
+            {
+                m_ShieldingState = new ShieldingState(inputControl);
+            }
+            return m_ShieldingState;
+        }
+    }
+
+    private JumpingState m_JumpingState;
+    public JumpingState JumpingState
+    {
+        get
+        {
+            if (m_JumpingState == null)
+            {
+                m_JumpingState = new JumpingState(inputControl);
+            }
+            return m_JumpingState;
+        }
+    }
+
+
+
     private void Awake()
     {
-
+        inputControl = gameObject.GetComponent<InputControl>();
     }
 
     public void handleInput()
     {
+        currStateID = currCharacterState.handleInput();
+        switchCharacterState();
 
+    }
+
+    private void switchCharacterState()
+    {
+        switch (currStateID)
+        {
+            case StateID.Idle:
+                currCharacterState = IdleState;
+                break;
+            case StateID.Walking:
+                currCharacterState = WalkingState;
+                break;
+            case StateID.WalkingBack:
+                currCharacterState = WalkingBackState;
+                break;
+            case StateID.SpecialMovement:
+                currCharacterState = SpecialMovementState;
+                break;
+            case StateID.Shielding:
+                currCharacterState = ShieldingState;
+                break;
+            case StateID.Jumping:
+                currCharacterState = JumpingState;
+                break;
+        }
     }
 
 }

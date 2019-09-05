@@ -58,9 +58,10 @@
      <Compile Include="Assets\Scripts\Character\CharacterState.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterStateLibrary.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterStats.cs" />
-     <Compile Include="Assets\Scripts\CharacterStates\CharacterStateLibrary.cs" />
+     <Compile Include="Assets\Scripts\Character\StateID.cs" />
+     <Compile Include="Assets\Scripts\Character\WalkingBackState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\IdleState.cs" />
-     <Compile Include="Assets\Scripts\CharacterStates\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Scripts\CharacterStates\JumpingState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\ShieldingState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\SpecialMovementState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\StateStrings.cs" />
