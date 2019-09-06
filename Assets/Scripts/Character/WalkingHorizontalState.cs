@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpingState : CharacterState
+public class WalkingHorizontalState : CharacterState
 {
-    public JumpingState(InputControl inputControl, GameObject gameObject) : base(inputControl, gameObject)
+    public WalkingHorizontalState(InputControl inputControl) : base(inputControl)
     {
-        stateID = StateID.Jumping;
+        stateID = StateID.WalkingBack;
     }
 
     public override int handleInput()
@@ -14,3 +14,4 @@ public class JumpingState : CharacterState
         throw new System.NotImplementedException();
     }
 }
+

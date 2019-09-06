@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Character\CharacterStats.cs" />
      <Compile Include="Assets\Scripts\Character\StateID.cs" />
      <Compile Include="Assets\Scripts\Character\WalkingBackState.cs" />
+     <Compile Include="Assets\Scripts\Character\WalkingHorizontalState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\IdleState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\JumpingState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\ShieldingState.cs" />

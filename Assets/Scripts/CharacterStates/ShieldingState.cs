@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShieldingState : CharacterState
 {
-    public ShieldingState(InputControl inputControl) : base(inputControl)
+    public ShieldingState(InputControl inputControl, GameObject gameObject) : base(inputControl, gameObject)
     {
         stateID = StateID.Shielding;
     }

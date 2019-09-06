@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpecialMovementState : CharacterState
 {
-    public SpecialMovementState(InputControl inputControl) : base(inputControl)
+    public SpecialMovementState(InputControl inputControl, GameObject gameObject) : base(inputControl, gameObject)
     {
         stateID = StateID.SpecialMovement;
     }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WalkingBackState : CharacterState
 {
-    public WalkingBackState(InputControl inputControl) : base(inputControl)
-    {
+    public WalkingBackState(InputControl inputControl, GameObject gameObject) : base(inputControl, gameObject)
+    { 
         stateID = StateID.WalkingBack;
     }
 

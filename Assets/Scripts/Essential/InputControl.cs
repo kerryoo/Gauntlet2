@@ -12,6 +12,7 @@ public class InputControl : MonoBehaviour
     public bool AimingOn;
     public bool Testbutton;
 
+    public bool Jumping;
     public bool Shield;
     public bool ActivatableItem;
     public bool CharacterInvOpen;

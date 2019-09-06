@@ -15,7 +15,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_IdleState == null)
             {
-                m_IdleState = new IdleState(inputControl);
+                m_IdleState = new IdleState(inputControl, gameObject);
             }
             return m_IdleState;
         }
@@ -28,7 +28,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_WalkingState == null)
             {
-                m_WalkingState = new WalkingState(inputControl);
+                m_WalkingState = new WalkingState(inputControl, gameObject);
             }
             return m_WalkingState;
         }
@@ -41,7 +41,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_WalkingBackState == null)
             {
-                m_WalkingBackState = new WalkingBackState(inputControl);
+                m_WalkingBackState = new WalkingBackState(inputControl, gameObject);
             }
             return m_WalkingBackState;
         }
@@ -54,7 +54,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_SpecialMovementState == null)
             {
-                m_SpecialMovementState = new SpecialMovementState(inputControl);
+                m_SpecialMovementState = new SpecialMovementState(inputControl, gameObject);
             }
             return m_SpecialMovementState;
         }
@@ -67,7 +67,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_ShieldingState == null)
             {
-                m_ShieldingState = new ShieldingState(inputControl);
+                m_ShieldingState = new ShieldingState(inputControl, gameObject);
             }
             return m_ShieldingState;
         }
@@ -80,7 +80,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_JumpingState == null)
             {
-                m_JumpingState = new JumpingState(inputControl);
+                m_JumpingState = new JumpingState(inputControl, gameObject);
             }
             return m_JumpingState;
         }
