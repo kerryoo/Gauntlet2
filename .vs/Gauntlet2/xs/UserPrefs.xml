@@ -1,18 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterStates/WalkingState.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterStates/ShieldingState.cs">
     <Files>
       <File FileName="Assets/Scripts/Character/Character.cs" Line="13" Column="42" />
-      <File FileName="Assets/Scripts/Character/CharacterState.cs" Line="16" Column="38" />
-      <File FileName="Assets/Scripts/Character/CharacterStateLibrary.cs" Line="81" Column="40" />
-      <File FileName="Assets/Scripts/CharacterStates/IdleState.cs" Line="19" Column="10" />
-      <File FileName="Assets/Scripts/CharacterStates/WalkingState.cs" Line="32" Column="13" />
+      <File FileName="Assets/Scripts/Character/CharacterState.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/Character/CharacterStateLibrary.cs" Line="5" Column="39" />
+      <File FileName="Assets/Scripts/CharacterStates/IdleState.cs" Line="20" Column="22" />
+      <File FileName="Assets/Scripts/CharacterStates/WalkingState.cs" Line="40" Column="10" />
       <File FileName="Assets/Scripts/CharacterStates/JumpingState.cs" Line="7" Column="107" />
-      <File FileName="Assets/Scripts/CharacterStates/ShieldingState.cs" Line="7" Column="109" />
-      <File FileName="Assets/Scripts/CharacterStates/SpecialMovementState.cs" Line="7" Column="115" />
-      <File FileName="Assets/Scripts/Essential/InputControl.cs" Line="15" Column="24" />
-      <File FileName="Assets/Scripts/Character/WalkingHorizontalState.cs" Line="13" Column="6" />
-      <File FileName="Assets/Scripts/Character/StateID.cs" Line="19" Column="60" />
-      <File FileName="Assets/Scripts/Character/CharacterStats.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterStates/ShieldingState.cs" Line="5" Column="46" />
+      <File FileName="Assets/Scripts/CharacterStates/SpecialMovementState.cs" />
+      <File FileName="Assets/Scripts/Essential/InputControl.cs" />
+      <File FileName="Assets/Scripts/Character/WalkingHorizontalState.cs" />
+      <File FileName="Assets/Scripts/Character/StateID.cs" Line="11" Column="21" />
+      <File FileName="Assets/Scripts/Character/CharacterStats.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,7 +23,7 @@
                 <Node name="Scripts" expanded="True">
                   <Node name="Character" expanded="True" />
                   <Node name="CharacterStates" expanded="True">
-                    <Node name="WalkingState.cs" selected="True" />
+                    <Node name="ShieldingState.cs" selected="True" />
                   </Node>
                   <Node name="Combat" expanded="True" />
                   <Node name="Essential" expanded="True" />

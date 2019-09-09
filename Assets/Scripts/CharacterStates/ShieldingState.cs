@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldingState : CharacterState
+public class ShieldingState : CharacterState 
 {
     public ShieldingState(InputControl inputControl, GameObject gameObject) : base(inputControl, gameObject)
     {
