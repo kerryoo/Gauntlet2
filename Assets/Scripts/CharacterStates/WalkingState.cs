@@ -34,7 +34,7 @@ public class WalkingState : CharacterState
             return StateID.Jumping;
         }
 
-        if (Mathf.Abs(currentV) <= 0.001 && Mathf.Abs(currentH) <= 0.001)
+        if (Mathf.Abs(currentV) <= 0.0001 && Mathf.Abs(currentH) <= 0.0001)
         {
             return StateID.Idle;
         }

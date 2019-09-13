@@ -1,18 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterStates/ShieldingState.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Essential/Messenger.cs">
     <Files>
-      <File FileName="Assets/Scripts/Character/Character.cs" Line="13" Column="42" />
-      <File FileName="Assets/Scripts/Character/CharacterState.cs" Line="12" Column="1" />
-      <File FileName="Assets/Scripts/Character/CharacterStateLibrary.cs" Line="5" Column="39" />
-      <File FileName="Assets/Scripts/CharacterStates/IdleState.cs" Line="20" Column="22" />
-      <File FileName="Assets/Scripts/CharacterStates/WalkingState.cs" Line="40" Column="10" />
-      <File FileName="Assets/Scripts/CharacterStates/JumpingState.cs" Line="7" Column="107" />
-      <File FileName="Assets/Scripts/CharacterStates/ShieldingState.cs" Line="5" Column="46" />
-      <File FileName="Assets/Scripts/CharacterStates/SpecialMovementState.cs" />
-      <File FileName="Assets/Scripts/Essential/InputControl.cs" />
-      <File FileName="Assets/Scripts/Character/WalkingHorizontalState.cs" />
-      <File FileName="Assets/Scripts/Character/StateID.cs" Line="11" Column="21" />
-      <File FileName="Assets/Scripts/Character/CharacterStats.cs" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character.cs" Line="18" Column="6" />
+      <File FileName="Assets/Scripts/Essential/InputControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/Cairne.cs" Line="5" Column="32" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/Dexter.cs" Line="5" Column="32" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/Firefly.cs" Line="5" Column="33" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/Isaac.cs" Line="5" Column="31" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/Kassandra.cs" Line="5" Column="35" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/Lutece.cs" Line="5" Column="32" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Library.cs" Line="4" Column="2" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/Terra.cs" Line="5" Column="31" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/XJTen.cs" Line="5" Column="31" />
+      <File FileName="Assets/Scripts/CharacterEssentials/CharacterStateLibrary.cs" Line="10" Column="6" />
+      <File FileName="Assets/Scripts/Essential/Messenger.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,12 +22,14 @@
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Assets" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="Character" expanded="True" />
-                  <Node name="CharacterStates" expanded="True">
-                    <Node name="ShieldingState.cs" selected="True" />
+                  <Node name="CharacterEssentials" expanded="True">
+                    <Node name="Character" expanded="True" />
                   </Node>
+                  <Node name="CharacterStates" expanded="True" />
                   <Node name="Combat" expanded="True" />
-                  <Node name="Essential" expanded="True" />
+                  <Node name="Essential" expanded="True">
+                    <Node name="Messenger.cs" selected="True" />
+                  </Node>
                 </Node>
               </Node>
             </Node>

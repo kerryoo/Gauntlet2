@@ -53,14 +53,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Character\Character.cs" />
-     <Compile Include="Assets\Scripts\Character\CharacterLibrary.cs" />
-     <Compile Include="Assets\Scripts\Character\CharacterState.cs" />
-     <Compile Include="Assets\Scripts\Character\CharacterStateLibrary.cs" />
-     <Compile Include="Assets\Scripts\Character\CharacterStats.cs" />
-     <Compile Include="Assets\Scripts\Character\StateID.cs" />
-     <Compile Include="Assets\Scripts\Character\WalkingBackState.cs" />
-     <Compile Include="Assets\Scripts\Character\WalkingHorizontalState.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Character.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Character\Cairne.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Character\Dexter.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Character\Firefly.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Character\Isaac.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Character\Kassandra.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Character\Lutece.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Character\Terra.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Character\XJTen.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\CharacterLibrary.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\CharacterState.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\CharacterStateLibrary.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\CharacterStats.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\Library.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\PassiveItem.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\PassiveItemLibrary.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\StateID.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\WalkingBackState.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\WalkingHorizontalState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\IdleState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\JumpingState.cs" />
      <Compile Include="Assets\Scripts\CharacterStates\ShieldingState.cs" />
