@@ -1,19 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Essential/Messenger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Essential/MasterPlayer.cs">
     <Files>
-      <File FileName="Assets/Scripts/CharacterEssentials/Character.cs" Line="18" Column="6" />
-      <File FileName="Assets/Scripts/Essential/InputControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/Cairne.cs" Line="5" Column="32" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/Dexter.cs" Line="5" Column="32" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/Firefly.cs" Line="5" Column="33" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/Isaac.cs" Line="5" Column="31" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/Kassandra.cs" Line="5" Column="35" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/Lutece.cs" Line="5" Column="32" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Library.cs" Line="4" Column="2" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/Terra.cs" Line="5" Column="31" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/XJTen.cs" Line="5" Column="31" />
-      <File FileName="Assets/Scripts/CharacterEssentials/CharacterStateLibrary.cs" Line="10" Column="6" />
-      <File FileName="Assets/Scripts/Essential/Messenger.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character.cs" Line="66" Column="29" />
+      <File FileName="Assets/Scripts/Essential/InputControl.cs" Line="58" Column="40" />
+      <File FileName="Assets/Scripts/CharacterEssentials/CharacterStateLibrary.cs" Line="83" Column="42" />
+      <File FileName="Assets/Scripts/CharacterStates/CharacterState.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterStates/IdleState.cs" />
+      <File FileName="Assets/Scripts/CharacterEssentials/CharacterLibrary.cs" Line="7" Column="41" />
+      <File FileName="Assets/Scripts/Combat/PassiveItemLibrary.cs" Line="32" Column="14" />
+      <File FileName="Assets/Scripts/Essential/Library.cs" Line="3" Column="27" />
+      <File FileName="Assets/Scripts/Essential/MasterPlayer.cs" Line="20" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -28,7 +24,7 @@
                   <Node name="CharacterStates" expanded="True" />
                   <Node name="Combat" expanded="True" />
                   <Node name="Essential" expanded="True">
-                    <Node name="Messenger.cs" selected="True" />
+                    <Node name="MasterPlayer.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>

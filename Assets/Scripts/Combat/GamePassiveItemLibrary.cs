@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-public class PassiveItemLibrary : Library
+public class GamePassiveItemLibrary : GameLibrary
 {
 
     private Dictionary<int, PassiveItem> passiveItemLibrary;

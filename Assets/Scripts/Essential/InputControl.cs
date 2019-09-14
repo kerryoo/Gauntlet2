@@ -4,31 +4,90 @@ using UnityEngine;
 
 public class InputControl : MonoBehaviour
 {
-    public float Vertical;
-    public float Horizontal;
-    public Vector2 MouseInput;
+    public float Vertical { get; private set; }
+    public float Horizontal { get; private set; }
+    public Vector2 MouseInput { get; private set; }
 
-    public bool Fire1;
-    public bool AimingOn;
-    public bool Testbutton;
+    public bool Fire1 { get; private set; }
+    public bool AimingOn { get; private set; }
+    public bool Testbutton { get; private set; }
 
-    public bool Jumping;
-    public bool Shield;
-    public bool ActivatableItem;
-    public bool CharacterInvOpen;
-    
+    public bool Jumping { get; private set; }
+    public bool Shield { get; private set; }
+    public bool SpecialAbility { get; private set; }
+    public bool CharacterInvOpen { get; private set; }
+    public bool Firing { get; private set; }
 
-    public bool Firing;
+    private bool _lockUpdate;
+    private bool _lockAttack;
+    private bool _lockSpecial;
 
     // Update is called once per frame
     void Update()
     {
-        MouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+        cameraUpdates();
+        if (!_lockUpdate)
+        {
+            gameplayUpdates();
+        }
+    }
 
-        Fire1 = Input.GetButton("Fire1");
+    private void cameraUpdates()
+    {
+        MouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         AimingOn = Input.GetButton("Fire2");
+    }
+
+    private void gameplayUpdates()
+    {
+        if (!_lockAttack)
+        {
+            Fire1 = Input.GetButton("Fire1");
+        }
+
+        if (!_lockSpecial)
+        {
+            SpecialAbility = Input.GetKeyDown(KeyCode.R);
+        }
+        
         Vertical = Input.GetAxis("Vertical");
         Horizontal = Input.GetAxis("Horizontal");
-        ActivatableItem = Input.GetKeyDown(KeyCode.R);
+    }
+
+    public void lockGameplayInput()
+    {
+        Vertical = 0;
+        Horizontal = 0;
+        Fire1 = false;
+        SpecialAbility = false;
+        _lockUpdate = true;
+    }
+
+    public void lockAttack()
+    {
+        Fire1 = false;
+        _lockAttack = true;
+    }
+
+    public void lockSpecial()
+    {
+        SpecialAbility = false;
+        _lockSpecial = true;
+    }
+
+
+    public void unlockGameplayInput()
+    {
+        _lockUpdate = false;
+    }
+
+    public void unlockAttack()
+    {
+        _lockAttack = false;
+    }
+
+    public void unlockSpecial()
+    {
+        _lockSpecial = false;
     }
 }

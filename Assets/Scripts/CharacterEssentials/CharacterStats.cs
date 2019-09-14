@@ -18,5 +18,6 @@ public class CharacterStats : MonoBehaviour
     public float RateOfFire;
     public float DamageDealt;
     public float MovementSpeed;
+    public float JumpForce;
 
 }

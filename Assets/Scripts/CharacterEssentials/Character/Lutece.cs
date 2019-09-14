@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lutece : MonoBehaviour
+public class Lutece : Character
 {
     // Start is called before the first frame update
     void Start()

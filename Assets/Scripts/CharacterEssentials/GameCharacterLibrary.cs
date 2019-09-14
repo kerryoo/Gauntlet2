@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-public class CharacterLibrary : Library
+public class GameCharacterLibrary : GameLibrary
 {
     [SerializeField] GameObject[] _characterModels;
 

@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CharacterStateLibrary : MonoBehaviour
 {
-    public CharacterState currCharacterState;
-    public int currStateID;
-    public InputControl inputControl;
+    public CharacterStateLibrary(InputControl inputControl)
+    {
+        this._inputControl = inputControl;
+    }
+
+    private CharacterState _currCharacterState;
+    private int _currStateID;
+    private InputControl _inputControl;
     
     private IdleState m_IdleState;
     public IdleState IdleState
@@ -15,7 +20,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_IdleState == null)
             {
-                m_IdleState = new IdleState(inputControl, gameObject);
+                m_IdleState = new IdleState(_inputControl, gameObject);
             }
             return m_IdleState;
         }
@@ -28,22 +33,9 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_WalkingState == null)
             {
-                m_WalkingState = new WalkingState(inputControl, gameObject);
+                m_WalkingState = new WalkingState(_inputControl, gameObject);
             }
             return m_WalkingState;
-        }
-    }
-
-    private WalkingBackState m_WalkingBackState;
-    public WalkingBackState WalkingBackState
-    {
-        get
-        {
-            if (m_WalkingBackState == null)
-            {
-                m_WalkingBackState = new WalkingBackState(inputControl, gameObject);
-            }
-            return m_WalkingBackState;
         }
     }
 
@@ -54,7 +46,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_SpecialMovementState == null)
             {
-                m_SpecialMovementState = new SpecialMovementState(inputControl, gameObject);
+                m_SpecialMovementState = new SpecialMovementState(_inputControl, gameObject);
             }
             return m_SpecialMovementState;
         }
@@ -67,7 +59,7 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_ShieldingState == null)
             {
-                m_ShieldingState = new ShieldingState(inputControl, gameObject);
+                m_ShieldingState = new ShieldingState(_inputControl, gameObject);
             }
             return m_ShieldingState;
         }
@@ -80,47 +72,37 @@ public class CharacterStateLibrary : MonoBehaviour
         {
             if (m_JumpingState == null)
             {
-                m_JumpingState = new JumpingState(inputControl, gameObject);
+                m_JumpingState = new JumpingState(_inputControl, gameObject);
             }
             return m_JumpingState;
         }
     }
 
-
-
-    private void Awake()
-    {
-        inputControl = gameObject.GetComponent<InputControl>();
-    }
-
     public void handleInput()
     {
-        currStateID = currCharacterState.handleInput();
+        _currStateID = _currCharacterState.handleInput();
         switchCharacterState();
 
     }
 
     private void switchCharacterState()
     {
-        switch (currStateID)
+        switch (_currStateID)
         {
-            case StateID.Idle:
-                currCharacterState = IdleState;
+            case SwitchID.Idle:
+                _currCharacterState = IdleState;
                 break;
-            case StateID.Walking:
-                currCharacterState = WalkingState;
+            case SwitchID.Walking:
+                _currCharacterState = WalkingState;
                 break;
-            case StateID.WalkingBack:
-                currCharacterState = WalkingBackState;
+            case SwitchID.SpecialMovement:
+                _currCharacterState = SpecialMovementState;
                 break;
-            case StateID.SpecialMovement:
-                currCharacterState = SpecialMovementState;
+            case SwitchID.Shielding:
+                _currCharacterState = ShieldingState;
                 break;
-            case StateID.Shielding:
-                currCharacterState = ShieldingState;
-                break;
-            case StateID.Jumping:
-                currCharacterState = JumpingState;
+            case SwitchID.Jumping:
+                _currCharacterState = JumpingState;
                 break;
         }
     }
