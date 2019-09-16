@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\CharacterEssentials\Character\Lutece.cs" />
      <Compile Include="Assets\Scripts\CharacterEssentials\Character\Terra.cs" />
      <Compile Include="Assets\Scripts\CharacterEssentials\Character\XJTen.cs" />
+     <Compile Include="Assets\Scripts\CharacterEssentials\CharacterInventory.cs" />
      <Compile Include="Assets\Scripts\CharacterEssentials\CharacterStateLibrary.cs" />
      <Compile Include="Assets\Scripts\CharacterEssentials\CharacterStats.cs" />
      <Compile Include="Assets\Scripts\CharacterEssentials\GameCharacterLibrary.cs" />
@@ -77,6 +78,7 @@
      <Compile Include="Assets\Scripts\Combat\ProjectileShooter.cs" />
      <Compile Include="Assets\Scripts\Essential\CameraControl.cs" />
      <Compile Include="Assets\Scripts\Essential\GameLibrary.cs" />
+     <Compile Include="Assets\Scripts\Essential\GameManager.cs" />
      <Compile Include="Assets\Scripts\Essential\InputControl.cs" />
      <Compile Include="Assets\Scripts\Essential\MasterPlayer.cs" />
      <Compile Include="Assets\Scripts\Essential\Messenger.cs" />

@@ -17,6 +17,20 @@ public class MasterPlayer : MonoBehaviour
         }
     }
 
+    private CharacterInventory m_characterInventory;
+    public CharacterInventory CharacterInventory
+    {
+        get
+        {
+            if (m_characterInventory == null)
+            {
+                m_characterInventory = GetComponent<CharacterInventory>();
+            }
+            return m_characterInventory;
+        }
+    }
+
+
 
 
 

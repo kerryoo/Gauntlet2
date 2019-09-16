@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class InputControl : MonoBehaviour
 {
-    public float Vertical { get; private set; }
-    public float Horizontal { get; private set; }
+    public Vector2 Direction;
     public Vector2 MouseInput { get; private set; }
 
     public bool Fire1 { get; private set; }
@@ -22,7 +21,12 @@ public class InputControl : MonoBehaviour
     private bool _lockAttack;
     private bool _lockSpecial;
 
-    // Update is called once per frame
+    void Start()
+    {
+        Direction = new Vector2();
+        MouseInput = new Vector2();
+    }
+
     void Update()
     {
         cameraUpdates();
@@ -49,15 +53,15 @@ public class InputControl : MonoBehaviour
         {
             SpecialAbility = Input.GetKeyDown(KeyCode.R);
         }
-        
-        Vertical = Input.GetAxis("Vertical");
-        Horizontal = Input.GetAxis("Horizontal");
+
+        Direction.x = Input.GetAxis("Horizontal");
+        Direction.y = Input.GetAxis("Vertical");
     }
 
     public void lockGameplayInput()
     {
-        Vertical = 0;
-        Horizontal = 0;
+        Direction.x = 0;
+        Direction.y = 0;
         Fire1 = false;
         SpecialAbility = false;
         _lockUpdate = true;

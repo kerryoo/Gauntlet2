@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public readonly int CHARACTER_ID;
+    public int CHARACTER_ID;
     public float MaxHealth;
     public float HealthRemaining;
 

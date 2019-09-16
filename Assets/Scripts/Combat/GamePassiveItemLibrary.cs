@@ -8,7 +8,7 @@ public class GamePassiveItemLibrary : GameLibrary
 
     private Dictionary<int, PassiveItem> passiveItemLibrary;
 
-    public override void DecodeJSON()
+    public override void AssembleLibrary()
     {
         passiveItemLibrary = new Dictionary<int, PassiveItem>();
 
@@ -27,19 +27,9 @@ public class GamePassiveItemLibrary : GameLibrary
         }
     }
 
-    private void onPassiveItemCollected(ref Character character, int ItemID)
+    public void onPassiveItemCollected(ref Character character, int ItemID)
     {
-        character.CharacterStats.MaxHealth += passiveItemLibrary[ItemID].maxHealth;
-
-        character.CharacterStats.MaxEnergy += passiveItemLibrary[ItemID].maxEnergy;
-        character.CharacterStats.EnergyRegen += passiveItemLibrary[ItemID].energyRegen;
-        character.CharacterStats.ShootEnergyCost += passiveItemLibrary[ItemID].shootEnergyCost;
-        character.CharacterStats.SpecialMovementCost += passiveItemLibrary[ItemID].specialMovementCost;
-        character.CharacterStats.ShieldEnergyRate += passiveItemLibrary[ItemID].shieldEnergyRate;
-
-        character.CharacterStats.RateOfFire /= passiveItemLibrary[ItemID].rateOfFire; //rate of fire will always be handled by division;
-        character.CharacterStats.DamageDealt += passiveItemLibrary[ItemID].damageDealt;
-        character.CharacterStats.MovementSpeed += passiveItemLibrary[ItemID].movementSpeed;
+        character.implementPassiveItem(passiveItemLibrary[ItemID]);
     }
 
 }

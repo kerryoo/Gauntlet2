@@ -2,5 +2,5 @@
 
 public abstract class GameLibrary : MonoBehaviour
 {
-    public abstract void DecodeJSON();
+    public abstract void AssembleLibrary();
 }
