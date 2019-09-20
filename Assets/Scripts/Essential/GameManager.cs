@@ -18,7 +18,7 @@ public class GameManager
                 _instance.gameObject = new GameObject("_gameManager");
 
                 _instance.gameObject.AddComponent<GameCharacterLibrary>();
-                _instance._gameCharacterLibrary.DecodeJSON();
+                _instance._gameCharacterLibrary.AssembleLibrary();
 
                 _instance.gameObject.AddComponent<GamePassiveItemLibrary>();
                 _instance._gamePassiveItemLibrary.DecodeJSON();

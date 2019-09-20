@@ -45,6 +45,7 @@ public abstract class Character : MonoBehaviour
     //in the MasterPlayer class
     public abstract void passiveActivities();
     public abstract void addExperience();
+    public abstract int getID();
     protected abstract void rankUp();
 
     //Called in MasterPlayer when the player switches character.
@@ -245,6 +246,11 @@ public abstract class Character : MonoBehaviour
         _characterStats.RateOfFire /= passiveItem.rateOfFire; //rate of fire will always be handled by division;
         _characterStats.DamageDealt += passiveItem.damageDealt;
         _characterStats.MovementSpeed += passiveItem.movementSpeed;
+    }
+
+    public bool Equals(Character character)
+    {
+        return character.getID() == this.getID();
     }
 
 }

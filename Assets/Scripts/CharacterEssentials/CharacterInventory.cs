@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterInventory : MonoBehaviour
@@ -8,27 +9,29 @@ public class CharacterInventory : MonoBehaviour
 
     private MasterPlayer player;
     public GameObject currCharacter { get; private set; }
-    public Character currCharacterScript { get; private set; }
 
-    public GameObject[] Characters = new GameObject[SLOTS];
-    public int currCharacterSlot { private set; get; }
+    public Dictionary<int, GameObject> Characters = new Dictionary<int, GameObject>();
 
-    private int freeInvSlot;
-
-    public void HandleCharacterCollect(int characterID)
+    //every player starts with Isaac
+    public void initializeInventory()
     {
-        int characterPosition = hasCharacter(characterID);
+        addCharacter(SwitchID.Isaac);
+        currCharacter = Characters[SwitchID.Isaac];
+        currCharacter.SetActive(true);
+    }
 
-        if (characterPosition != -1)
+    //if the player already has a character, increase his or her experience.
+    //if not, add the character to the inventory
+    public void handleCharacterCollect(int characterID)
+    {
+        if (Characters.ContainsKey(characterID))
         {
-            Characters[characterPosition].GetComponent<Character>().addExperience();
+            Characters[characterID].GetComponent<Character>().addExperience();
             return;
         } 
        
         addCharacter(characterID);
         Debug.Log("character added");
-        
-
     }
 
     //Handle the connections necessary when a player gets a new character.
@@ -41,92 +44,28 @@ public class CharacterInventory : MonoBehaviour
         }
 
         GameObject newCharacter = Instantiate(GameManager.Instance.GameCharacterLibrary._characterLibrary[characterID]);
-        Characters[numCharacters] = newCharacter;
+        Characters[characterID] = newCharacter;
         newCharacter.GetComponent<Character>().setCharacterActive(false);
         newCharacter.GetComponent<Character>().prepareCharacter(player.InputControl, newCharacter.transform);
-
+        player.handleAddCharacter(newCharacter.GetComponent<Character>());
 
         numCharacters += 1;
-
     }
 
-    public void removeCharacter(Character character)
+    public void removeCharacter(int characterID)
     {
-        int i = 0;
-        Type type = character.GetType(); //abstract class, we need to know which character/subclass
-
-        while (i < numCharacters && (Characters[i].GetComponent<Character>().type))
-        {
-
-        }
-        Characters[itemSlot] = null;
-        //reorganize the list
-        numCharacters -= 1;
+        Characters.Remove(characterID);
     }
 
-    //returns position of character or negative one if it is not in the array.
-    public int hasCharacter(Character character)
+    private void reset()
     {
-        for (int i = 0; i < numCharacters; i++)
-        {
-            Character loopCharacter = Characters[i].GetComponent<Character>();
-            if (loopCharacter.Equals(character))
-                return i;
-            else
-                return -1; //populated slots will always be adjacent to eachother
-        }
-        return -1;
+        Characters.Clear();
     }
 
-    public int hasCharacter(int characterID)
+    public void switchCharacter(int characterID)
     {
-        for (int i = 0; i < SLOTS; i++)
-        {
-            if (Characters[i] != null)
-            {
-                Character loopCharacter = Characters[i].GetComponent<Character>();
-                if (loopCharacter.ID == characterID)
-                    return i;
-            }
-            else
-                return -1;
-        }
-        return -1;
-    }
-
-    public void switchCharacterPosition(int slot1, int slot2)
-    {
-        GameObject heldCharacter = Characters[slot1];
-        Characters[slot1] = Characters[slot2];
-        Characters[slot2] = heldCharacter;
-    }
-
-    public void Reset()
-    {
-        for (int i = 0; i < SLOTS; i++)
-        {
-            Characters[i] = null;
-        }
-    }
-
-    public void ShowInventory()
-    {
-        for (int i = 0; i < SLOTS; i++)
-        {
-            Debug.Log(Characters[i]);
-        }
-    }
-
-    public void switchCharacter(int slot)
-    {
-        currCharacter.GetComponent<Character>().SwitchDestroy();
-        Debug.Log(Characters[0].GetComponent<Character>().characterStats.RateOfFire);
-        Debug.Log(Characters[0].GetComponent<Character>().characterStats.baseStatsSet);
-
-        currCharacter = Instantiate(Characters[slot], transform.position, transform.rotation, transform);
-        currCharacterSlot = slot;
-
-        currCharacterScript = currCharacter.GetComponent<Character>();
-        Messenger<Character>.Broadcast(GameEvent.CHARACTER_SWITCHED, currCharacterScript);
+        currCharacter.SetActive(false);
+        currCharacter = Characters[characterID];
+        currCharacter.SetActive(true);
     }
 }

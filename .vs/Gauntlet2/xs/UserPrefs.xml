@@ -2,18 +2,18 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterEssentials/CharacterInventory.cs">
     <Files>
       <File FileName="Assets/Scripts/Essential/InputControl.cs" Line="58" Column="40" />
-      <File FileName="Assets/Scripts/CharacterEssentials/CharacterStateLibrary.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CharacterStates/CharacterState.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Essential/MasterPlayer.cs" Line="38" Column="55" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character.cs" Line="32" Column="43" />
-      <File FileName="Assets/Scripts/CharacterEssentials/GameCharacterLibrary.cs" Line="13" Column="11" />
+      <File FileName="Assets/Scripts/CharacterEssentials/CharacterStateLibrary.cs" />
+      <File FileName="Assets/Scripts/CharacterStates/CharacterState.cs" />
+      <File FileName="Assets/Scripts/Essential/MasterPlayer.cs" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character.cs" />
+      <File FileName="Assets/Scripts/CharacterEssentials/GameCharacterLibrary.cs" />
       <File FileName="Assets/Scripts/CharacterEssentials/CharacterInventory.cs" Line="51" Column="6" />
-      <File FileName="Assets/Scripts/Essential/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CharacterEssentials/SwitchID.cs" Line="9" Column="11" />
-      <File FileName="Assets/Scripts/CharacterEssentials/CharacterStats.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Essential/GameLibrary.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/Isaac.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CharacterEssentials/Character/Lutece.cs" Line="7" Column="5" />
+      <File FileName="Assets/Scripts/Essential/GameManager.cs" />
+      <File FileName="Assets/Scripts/CharacterEssentials/SwitchID.cs" />
+      <File FileName="Assets/Scripts/CharacterEssentials/CharacterStats.cs" />
+      <File FileName="Assets/Scripts/Essential/GameLibrary.cs" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/Isaac.cs" />
+      <File FileName="Assets/Scripts/CharacterEssentials/Character/Lutece.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
