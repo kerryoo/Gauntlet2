@@ -10,7 +10,7 @@ public class GameCharacterLibrary : GameLibrary
     [SerializeField] GameObject[] _characterModels;
 
     private readonly int NUMBER_OF_CHARACTERS = 8;
-    private Dictionary<int, GameObject> _characterLibrary;
+    public Dictionary<int, GameObject> _characterLibrary;
 
     public override void AssembleLibrary()
     {
@@ -37,6 +37,18 @@ public class GameCharacterLibrary : GameLibrary
             string json = streamReader.ReadLine();
             CharacterStats currStats = JsonUtility.FromJson<CharacterStats>(@json);
         }
+    }
+
+    public GameObject getCharacterClone(int ID)
+    {
+        GameObject characterClone = _characterLibrary[ID];
+    }
+
+    private void setConnections(GameObject characterModel)
+    {
+        Character character = characterModel.GetComponent<Character>();
+       
+
     }
 
     

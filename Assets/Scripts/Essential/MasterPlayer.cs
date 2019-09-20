@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MasterPlayer : MonoBehaviour
 {
+    public delegate void passiveActivities();
+    private passiveActivities currActivities;
+
     private InputControl m_InputControl;
     public InputControl InputControl
     {
@@ -30,22 +34,16 @@ public class MasterPlayer : MonoBehaviour
         }
     }
 
+    //Multicast delegate that holds activities of characters that must be handled
+    //when they are not active. Called in update loop.
 
-
-
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        currActivities();
+    }
+
+    public void handleAddCharacter(Character character)
+    {
+        currActivities += character.passiveActivities;
     }
 }

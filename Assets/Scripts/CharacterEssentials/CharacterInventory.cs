@@ -1,32 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class CharacterInventory : MonoBehaviour
 {
     private const int SLOTS = 10;
-    private Player player;
+    private int numCharacters;
+
+    private MasterPlayer player;
     public GameObject currCharacter { get; private set; }
     public Character currCharacterScript { get; private set; }
 
-    public GameObject[] Characters;
+    public GameObject[] Characters = new GameObject[SLOTS];
     public int currCharacterSlot { private set; get; }
 
     private int freeInvSlot;
-
-    private void Start()
-    {
-        player = gameObject.GetComponent<Player>();
-
-        Characters = new GameObject[SLOTS];
-        addCharacter(GameManager.Instance.CharacterManager.GetCharacter(30000));
-        currCharacterScript = currCharacter.GetComponent<Character>();
-    }
-
-    public void OnCharacterUpdate(CharacterStats characterStats)
-    {
-        Characters[currCharacterSlot].GetComponent<Character>().characterStats = characterStats;
-    }
 
     public void HandleCharacterCollect(int characterID)
     {
@@ -34,49 +21,57 @@ public class CharacterInventory : MonoBehaviour
 
         if (characterPosition != -1)
         {
-            Characters[characterPosition].GetComponent<Character>().AddExperience();
+            Characters[characterPosition].GetComponent<Character>().addExperience();
+            return;
+        } 
+       
+        addCharacter(characterID);
+        Debug.Log("character added");
+        
+
+    }
+
+    //Handle the connections necessary when a player gets a new character.
+    public void addCharacter(int characterID)
+    {
+        if (numCharacters >= SLOTS)
+        {
+            Debug.Log("Inventory full");
             return;
         }
 
-        freeInvSlot = findNextEmptySlot();
+        GameObject newCharacter = Instantiate(GameManager.Instance.GameCharacterLibrary._characterLibrary[characterID]);
+        Characters[numCharacters] = newCharacter;
+        newCharacter.GetComponent<Character>().setCharacterActive(false);
+        newCharacter.GetComponent<Character>().prepareCharacter(player.InputControl, newCharacter.transform);
 
-        if (freeInvSlot == -1)
+
+        numCharacters += 1;
+
+    }
+
+    public void removeCharacter(Character character)
+    {
+        int i = 0;
+        Type type = character.GetType(); //abstract class, we need to know which character/subclass
+
+        while (i < numCharacters && (Characters[i].GetComponent<Character>().type))
         {
-            Debug.Log("Inventory Full");
+
         }
-        else
-        {
-            addCharacter(characterID);
-            Debug.Log("character added");
-        }
-
-    }
-
-    public void addCharacter(GameObject character)
-    {
-        Characters[freeInvSlot] = character;
-    }
-
-    public void addCharacter(int characterID)
-    {
-        Characters[freeInvSlot] = GameManager.Instance.CharacterManager.GetCharacter(characterID);
-    }
-
-    public void removeCharacter(int itemSlot)
-    {
         Characters[itemSlot] = null;
+        //reorganize the list
+        numCharacters -= 1;
     }
 
-    public int hasCharacter(Character character) //returns position if it has character
+    //returns position of character or negative one if it is not in the array.
+    public int hasCharacter(Character character)
     {
-        for (int i = 0; i < SLOTS; i++)
+        for (int i = 0; i < numCharacters; i++)
         {
-            if (Characters[i] != null)
-            {
-                Character loopCharacter = Characters[i].GetComponent<Character>();
-                if (loopCharacter.Equals(character))
-                    return i;
-            }
+            Character loopCharacter = Characters[i].GetComponent<Character>();
+            if (loopCharacter.Equals(character))
+                return i;
             else
                 return -1; //populated slots will always be adjacent to eachother
         }
@@ -96,19 +91,6 @@ public class CharacterInventory : MonoBehaviour
             else
                 return -1;
         }
-        return -1;
-    }
-
-    public int findNextEmptySlot()
-    {
-        for (int i = 0; i < SLOTS; i++)
-        {
-            if (Characters[i] == null)
-            {
-                return i;
-            }
-        }
-
         return -1;
     }
 

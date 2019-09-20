@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Character : MonoBehaviour
-{
+{ 
     protected const float INTERPOLATION = 10;
     protected const float BACKWARDS_RUN_SCALE = 0.66f;
     protected const float AIRSTRAFING_SCALE = 0.1f;
@@ -29,22 +29,7 @@ public abstract class Character : MonoBehaviour
     protected Animator _animator;
     protected Rigidbody _rigidbody;
     protected CharacterStats _characterStats;
-    protected GameObject _characterModel;
-
-    //Constructor to build characters at the start of the game. Called in GameCharacterLibrary.
-    public Character(Animator animator, Rigidbody rigidbody, CharacterStats characterStats, GameObject characterModel)
-    {
-        _animator = animator;
-        _rigidbody = rigidbody;
-        _characterStats = characterStats;
-        _characterModel = characterModel;
-    }
-
-    //Copy Constructor so each instance of a character can be unique to the player that has it.
-    public Character(Character characterRef)
-    {
-        _animator = new characterRef._animator;
-    }
+    protected GameObject _characterObject;
 
     //the fields we can't preset are the inputControl and transform, since they're unique
     //to each player. When a player gets the character, the inputControl and player's transform
@@ -53,6 +38,19 @@ public abstract class Character : MonoBehaviour
     {
         _inputControl = inputControl;
         _transform = passedTransform;
+    }
+
+    //Some activities need to be handled even when the character is not active.
+    //This method holds those activities to be passed to a multicast delegate
+    //in the MasterPlayer class
+    public abstract void passiveActivities();
+    public abstract void addExperience();
+    protected abstract void rankUp();
+
+    //Called in MasterPlayer when the player switches character.
+    public void setCharacterActive(bool active)
+    {
+        _characterObject.SetActive(active);
     }
 
     //inputs are handled through a finite state machine.
